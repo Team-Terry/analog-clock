@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+:root {
+	--theme-bg-color: #323232;
+    --sec-bg-color: #1a1a1a;
+	--theme-text-color: #d3d3d3;
+    --outsider-color: f00;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--theme-bg-color);
+    color: var(--theme-text-color);
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.clock {
+    position: relative;
+    flex-shrink: 0;
+    width: 320px;
+    height: 320px;
+    border: 15px solid var(--sec-bg-color);
+    border-radius: 50%;
+    background: var(--theme-text-color) url(clock.png) center;
+    background-size: cover;
+    box-shadow: 15px 15px 35px rgba(0,0,0,0.2),
+    inset 0 0 30px rgba(0,0,0,0.4);
+}
+.clock::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height:1.3rem;
+    width: 1.3rem;
+    border: 2px solid var(--theme-text-color);
+    border-radius: 50%;
+    background-color: var(--sec-bg-color);
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+}
+.hand {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
+    transform-origin: bottom;
+}
+.hour {
+    height: 80px;
+    width: 10px;
+    top: 80px;
+    background-color: var(--sec-bg-color);
+}
+.minute {
+    height: 110px;
+    width: 8px;
+    top: 50px;
+    background-color: var(--sec-bg-color);
+}
+.second {
+    position: relative;
+    height: 120px;
+    width: 4px;
+    top: 40px;
+    background-color: var(--outsider-color);
+}
+.second::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 125%;
+    width: 100%;
+    background-color: var(--outsider-color);
+    border-radius: 20px;
+
+}
